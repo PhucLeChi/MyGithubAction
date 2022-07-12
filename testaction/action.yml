@@ -5,10 +5,7 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'World'
-outputs:
-  random-number:
-    description: "Random number"
-    value: ${{ steps.random-number-generator.outputs.random-number }}
+
 runs:
   using: "composite"
   steps:
@@ -22,3 +19,8 @@ runs:
     - name: Set env
       run: echo "BUILD_NUMBER=${{ steps.random-number-generator.outputs.random-number }}" >> $GITHUB_ENV
       shell: bash
+      
+outputs:
+  random-number:
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-number }}
