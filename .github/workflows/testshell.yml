@@ -41,4 +41,4 @@ jobs:
       - name: Run remove item
         shell: pwsh
         run: |
-          Remove-Item ${{ github.workspace }} -Recurse
+          Remove-Item ${{ github.workspace }}\Haha -Recurse
