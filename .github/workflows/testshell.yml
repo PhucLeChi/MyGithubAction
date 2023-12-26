@@ -36,3 +36,9 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          ls .
+
+      - name: Run remove item
+        shell: pwsh
+        run: |
+          Remove-Item ${{ github.workspace }} -Recurse
