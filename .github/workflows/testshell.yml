@@ -40,5 +40,5 @@ jobs:
       - name: xxxxx
         shell: pwsh
         run: |
-          echo Add other actions to build
-          echo start $(buildTargetName) and ${{ env.buildTargetName }} end
+          echo "Add other actions to build"
+          echo "start $(buildTargetName) and ${{ env.buildTargetName }} end"
