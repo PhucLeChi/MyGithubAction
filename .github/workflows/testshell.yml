@@ -34,17 +34,11 @@ jobs:
       - name: Run a multi-line script
         shell: pwsh
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-          ls .
-
-      - name: Run remove item
-        shell: pwsh
-        run: |
-          Remove-Item ${{ github.workspace }}\Haha -Recurse
+          $buildTargetNameWithoutDot = "Dfin.RightProspectus.CommandCenter.Engineering.Web" -replace ('\.', '')
+          echo "buildTargetName=$buildTargetNameWithoutDot" >> $GITHUB_ENV
 
       - name: xxxxx
         shell: pwsh
         run: |
           echo Add other actions to build
-          ls .
+          echo start $(buildTargetName) and ${{ env.buildTargetName }} end
