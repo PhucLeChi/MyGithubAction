@@ -35,10 +35,10 @@ jobs:
         shell: pwsh
         run: |
           $buildTargetNameWithoutDot = "Dfin.RightProspectus.CommandCenter.Engineering.Web" -replace ('\.', '')
-          echo "buildTargetName=$buildTargetNameWithoutDot" >> $GITHUB_ENV
+          echo "buildTargetName=$buildTargetNameWithoutDot" >> $env:GITHUB_ENV
 
       - name: xxxxx
         shell: pwsh
         run: |
           echo "Add other actions to build"
-          echo "start $(buildTargetName) and ${{ env.buildTargetName }} end"
+          echo "start $buildTargetName and ${{ env.buildTargetName }} end"
