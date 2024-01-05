@@ -34,10 +34,10 @@ jobs:
       - name: Install Dependencies
         shell: pwsh
         run: npm install
-        working-directory: Haha
+        working-directory: angularapp
         
       # Runs a single command using the runners shell
       - name: check version
         shell: pwsh
         run: npm --version
-        working-directory: Haha
+        working-directory: angularapp
