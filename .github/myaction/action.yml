@@ -14,6 +14,8 @@ runs:
       shell: pwsh
       run: |
         echo "Set available as mask"
+        echo "buildNumber=$(date +'%Y.%m.%d').${{ github.run_number }}"
         $myMask=$(date +'%Y.%m.%d').${{ github.run_number }}
+        echo "$myMask"
         echo "::add-mask::$myMask"
         echo "myMask=$myMask" >> $env:GITHUB_OUTPUT
