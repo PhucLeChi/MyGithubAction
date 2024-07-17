@@ -16,7 +16,7 @@ runs:
       id: build_number
       shell: bash
       run: |
-        $myMask="$(date +'%Y.%m.%d').${{ github.run_number }}"
+        myMask="$(date +'%Y.%m.%d').${{ github.run_number }}"
         echo "$myMask"
         echo "::add-mask::$myMask"
         echo "myMask=$myMask" >> $GITHUB_OUTPUT
