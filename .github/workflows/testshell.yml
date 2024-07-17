@@ -13,6 +13,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:
+  PROJECT_TARGET_NAME: 'Dfin.RightProspectus.CommandCenter.Funds.Web'
+  
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -26,7 +29,7 @@ jobs:
         shell: pwsh
         id: first_step
         run: |
-          TOKEN1="Hahahaaaaa"
+          $TOKEN1=${{ env.PROJECT_TARGET_NAME }}
           echo "$TOKEN1"
           echo "::add-mask::$TOKEN1"
           echo TOKEN1=$TOKEN1 >> $GITHUB_ENV
