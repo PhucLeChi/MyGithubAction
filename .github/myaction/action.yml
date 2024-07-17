@@ -5,6 +5,9 @@ outputs:
   build_number:
     description: "Random number"
     value: ${{ steps.build_number.outputs.myMask }}
+  build_number2:
+    description: "Random number"
+    value: ${{ steps.build_number2.outputs.myVarxxx }}
 
 runs:
   using: "composite"
@@ -17,3 +20,10 @@ runs:
         echo "$myMask"
         echo "::add-mask::$myMask"
         echo "myMask=$myMask" >> $env:GITHUB_OUTPUT
+
+    - name: Set variables 2
+      id: build_number2
+      shell: pwsh
+      run: |
+        $myVarxxx="$(date +'%Y.%m.%d').${{ github.run_number }}"
+        echo "myVarxxx=$myVarxxx" >> $env:GITHUB_OUTPUT
