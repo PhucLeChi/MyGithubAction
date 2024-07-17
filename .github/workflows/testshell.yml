@@ -37,4 +37,5 @@ jobs:
       - name: Show log
         shell: pwsh
         run: |
-          echo "This is test"
+          echo "This is test token '${{ env.TOKEN1 }}'"
+          echo "This is test name '${{ env.PROJECT_TARGET_NAME }}'"
