@@ -11,6 +11,7 @@ outputs:
 
 runs:
   using: "composite"
+  shell: bash
   steps:
     - name: Set variables
       id: build_number
