@@ -39,8 +39,9 @@ jobs:
         shell: pwsh
         id: first_step
         run: |
-          echo "::add-mask::$MYTOKEN1"
-          echo "MYTOKEN1=$MYTOKEN1" >> $env:GITHUB_ENV
+          myMask=${{ env.MYTOKEN1 }}
+          echo "::add-mask::$myMask"
+          echo "myMask=$myMask" >> $env:GITHUB_ENV
 
       - name: Show log
         shell: pwsh
