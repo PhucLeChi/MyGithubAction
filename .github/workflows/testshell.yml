@@ -29,7 +29,7 @@ jobs:
         shell: pwsh
         id: first_step
         run: |
-          PROJECT_TARGET_NAME='${{ env.PROJECT_TARGET_NAME }}'
+          $PROJECT_TARGET_NAME='${{ env.PROJECT_TARGET_NAME }}'
           echo "$PROJECT_TARGET_NAME"
           echo "::add-mask::$PROJECT_TARGET_NAME"
           echo PROJECT_TARGET_NAME=$PROJECT_TARGET_NAME >> $GITHUB_ENV
