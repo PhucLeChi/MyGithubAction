@@ -22,34 +22,16 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-      
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v4.0.0
-        with:
-          # Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.
-          node-version: 16
-
-      - name: Install Dependencies
+      - name: Set variables
         shell: pwsh
-        run: npm install
-        working-directory: angularapp
-        
-      # Runs a single command using the runners shell
-      - name: check version
-        shell: pwsh
-        run: npm --version
-        working-directory: angularapp
+        id: first_step
+        run: |
+          TOKEN1="Hahahaaaaa"
+          echo "$TOKEN1"
+          echo "::add-mask::$TOKEN1"
+          echo TOKEN1=$TOKEN1 >> $GITHUB_ENV
 
-      - name: Build ${{ inputs.build-target-name }}
+      - name: Show log
         shell: pwsh
-        run: npm run build
-        working-directory: angularapp
-
-      - name: Upload Build Artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: dropxxx
-          path: ${{ github.workspace }}/angularapp/dist/angularapp
-          if-no-files-found: error
+        run: |
+          echo "This is test"
