@@ -28,6 +28,7 @@ jobs:
       - name: Set variables
         shell: pwsh
         run: |
+          echo "Set available as mask"
           $myMask='${{ github.ref_name }}'
           echo "::add-mask::$myMask"
           echo "myMask=$myMask" >> $env:GITHUB_ENV
