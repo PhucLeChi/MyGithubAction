@@ -14,15 +14,13 @@ runs:
   steps:
     - name: Set variables
       id: build_number
-      shell: pwsh
       run: |
         $myMask="$(date +'%Y.%m.%d').${{ github.run_number }}"
         echo "$myMask"
         echo "::add-mask::$myMask"
-        echo "myMask=$myMask" >> $env:GITHUB_OUTPUT
+        echo "myMask=$myMask" >> $GITHUB_OUTPUT
 
     - name: Get Build Number
       id: build_number2
-      shell: pwsh
-      run: echo "buildNumber=$(date +'%Y.%m.%d').${{ github.run_number }}" >> $env:GITHUB_OUTPUT
+      run: echo "buildNumber=$(date +'%Y.%m.%d').${{ github.run_number }}" >> $GITHUB_OUTPUT
 
