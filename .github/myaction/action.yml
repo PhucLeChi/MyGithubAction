@@ -11,10 +11,10 @@ outputs:
 
 runs:
   using: "composite"
-  shell: bash
   steps:
     - name: Set variables
       id: build_number
+      shell: bash
       run: |
         $myMask="$(date +'%Y.%m.%d').${{ github.run_number }}"
         echo "$myMask"
@@ -23,5 +23,6 @@ runs:
 
     - name: Get Build Number
       id: build_number2
+      shell: bash
       run: echo "buildNumber=$(date +'%Y.%m.%d').${{ github.run_number }}" >> $GITHUB_OUTPUT
 
