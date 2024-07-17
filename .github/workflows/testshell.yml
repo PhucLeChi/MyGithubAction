@@ -28,7 +28,7 @@ jobs:
       - name: Set variables 001
         shell: pwsh
         run: |
-          echo "MYTOKEN1=${{ github.ref_name }}" >> $GITHUB_ENV
+          echo "MYTOKEN1=${{ github.ref_name }}" >> $env:GITHUB_ENV
 
       - name: Set variables 002
         shell: pwsh
@@ -39,10 +39,8 @@ jobs:
         shell: pwsh
         id: first_step
         run: |
-          $PROJECT_TARGET_NAME='${{ env.PROJECT_TARGET_NAME }}'
-          echo "$PROJECT_TARGET_NAME"
-          echo "::add-mask::$PROJECT_TARGET_NAME"
-          echo "PROJECT_TARGET_NAME=$PROJECT_TARGET_NAME" >> $GITHUB_ENV
+          echo "::add-mask::$MYTOKEN1"
+          echo "MYTOKEN1=$MYTOKEN1" >> $env:GITHUB_ENV
 
       - name: Show log
         shell: pwsh
