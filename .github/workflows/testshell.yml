@@ -29,13 +29,12 @@ jobs:
         shell: pwsh
         id: first_step
         run: |
-          $TOKEN1='${{ env.PROJECT_TARGET_NAME }}'
-          echo "$TOKEN1"
-          echo "::add-mask::$TOKEN1"
-          echo TOKEN1=$TOKEN1 >> $GITHUB_ENV
+          PROJECT_TARGET_NAME='${{ env.PROJECT_TARGET_NAME }}'
+          echo "$PROJECT_TARGET_NAME"
+          echo "::add-mask::$PROJECT_TARGET_NAME"
+          echo PROJECT_TARGET_NAME=$PROJECT_TARGET_NAME >> $GITHUB_ENV
 
       - name: Show log
         shell: pwsh
         run: |
-          echo "This is test token '${{ env.TOKEN1 }}'"
           echo "This is test name '${{ env.PROJECT_TARGET_NAME }}'"
