@@ -25,6 +25,16 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Set variables 001
+        shell: pwsh
+        run: |
+          echo "MYTOKEN1=${{ github.ref_name }}" >> $GITHUB_ENV
+
+      - name: Set variables 002
+        shell: pwsh
+        run: |
+          echo "MYTOKEN2=${{ github.ref_name }}" >> $env:GITHUB_ENV
+          
       - name: Set variables
         shell: pwsh
         id: first_step
@@ -33,10 +43,10 @@ jobs:
           echo "$PROJECT_TARGET_NAME"
           echo "::add-mask::$PROJECT_TARGET_NAME"
           echo "PROJECT_TARGET_NAME=$PROJECT_TARGET_NAME" >> $GITHUB_ENV
-          echo "TOKEN1=${{ github.ref_name }}" >> $GITHUB_ENV
 
       - name: Show log
         shell: pwsh
         run: |
           echo "This is test name '${{ env.PROJECT_TARGET_NAME }}'"
-          echo "This is test aaaa '${{ env.TOKEN1 }}'"
+          echo "This is test aaaa '${{ env.MYTOKEN1 }}'"
+          echo "This is test bbbb '${{ env.MYTOKEN2 }}'"
