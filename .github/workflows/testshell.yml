@@ -33,7 +33,7 @@ jobs:
           echo "$PROJECT_TARGET_NAME"
           echo "::add-mask::$PROJECT_TARGET_NAME"
           echo "PROJECT_TARGET_NAME=$PROJECT_TARGET_NAME" >> $GITHUB_ENV
-          echo "TOKEN1='This is test token'" >> $GITHUB_ENV
+          echo "TOKEN1=${{ github.ref_name }}" >> $GITHUB_ENV
 
       - name: Show log
         shell: pwsh
