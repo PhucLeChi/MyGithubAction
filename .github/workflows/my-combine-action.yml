@@ -1,21 +1,19 @@
-# name: 'Hello World'
-# description: 'Greet someone'
-# inputs:
-#   who-to-greet:  # id of input
-#     description: 'Who to greet'
-#     required: true
-#     default: 'World'
-# outputs:
-#   random-number:
-#     description: "Random number"
-#     value: ${{ steps.random-number-generator.outputs.random-number }}
-# runs:
-#   using: "composite"
-#   steps:
-#     - run: echo Hello ${{ inputs.who-to-greet }}.
-#       shell: bash
-#     - id: random-number-generator
-#       run: echo "::set-output name=random-number::$(echo $RANDOM)"
-#       shell: bash
-#     - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
-#       shell: bash
+name: 'Hello World'
+description: 'Greet someone'
+
+outputs:
+  build_number:
+    description: "Random number"
+    value: ${{ steps.build_number.outputs.myMask }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set variables
+      id: build_number
+      shell: pwsh
+      run: |
+        echo "Set available as mask"
+        $myMask=$(date +'%Y.%m.%d').${{ github.run_number }}
+        echo "::add-mask::$myMask"
+        echo "myMask=$myMask" >> $env:GITHUB_OUTPUT
